@@ -22,14 +22,13 @@ Route::get('/login', function () {
 });
 
 Route::get('/products', function () {
-    return view('products');
+    return view('products', [
+        'products' => Product::getAll()
+    ]);
 });
 
 Route::get('/products/{product}', function ($slug) {
-    $product = Product::find($slug);
-
     return view('product',[
-        'product' => $product
+        'product' => Product::find($slug)
     ]);
-
 }) -> where('product','[A-z_\-]+');

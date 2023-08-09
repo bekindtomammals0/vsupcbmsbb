@@ -7,8 +7,11 @@
 </head>
 <body>
     <h2>You are now in Products Page</h2>
-    <h3><a href="/products/first-product">Product #1</a></h3>
-    <h3><a href="/products/second-product">Product #2</a></h3>
+    <?php foreach($products as $product) :?>
+        <article>
+            <?= $product; ?>
+        </article>
+    <?php endforeach; ?>
 </body>
 </html>
 
