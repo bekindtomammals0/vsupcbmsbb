@@ -7,7 +7,5 @@
 </head>
 <body>
     <?= $product ?>
-    {{-- <h2>You are now in Product #1 Page</h2>
-    <h3>Product #1</h3> --}}
 </body>
 </html>
