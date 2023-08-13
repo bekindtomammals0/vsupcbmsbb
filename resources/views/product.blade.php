@@ -6,6 +6,7 @@
     <title>Specific Product</title>
 </head>
 <body>
-    <?= $product ?>
+    <h1><?= $product->title ?></h1>
+    <div><?= $product->body; ?></div>
 </body>
 </html>
