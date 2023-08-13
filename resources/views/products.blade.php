@@ -9,7 +9,14 @@
     <h2>You are now in Products Page</h2>
     <?php foreach($products as $product) :?>
         <article>
-            <?= $product; ?>
+            <a href="products/<?=$product->slug?>">
+                <h1>
+                <?= $product->title; ?>
+                </h1>
+            </a>
+            <div>
+                <?= $product->body; ?>
+            </div>
         </article>
     <?php endforeach; ?>
 </body>
