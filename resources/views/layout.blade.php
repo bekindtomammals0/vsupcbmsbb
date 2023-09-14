@@ -3,15 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Specific Product</title>
+    <title>Products</title>
 </head>
 <body>
-    <h1>
-        {{$product->title}}
-    </h1>
-    <div>
-        {!!$product->body;!!}
-    </div>
-    <a href="/">Go Back</a>
+    @yield('content')
 </body>
 </html>

@@ -32,6 +32,6 @@ Route::get('/products', function () {
 
 Route::get('/products/{product}', function ($slug) {
     return view('product',[
-        'product' => Product::find($slug)
+        'product' => Product::findOrFail($slug)
     ]);
-}) -> where('product','[A-z_\-]+');
+});

@@ -34,6 +34,17 @@ class Product
         return static::getAll()->firstWhere('slug', $slug);
     }
 
+    public static function findOrFail($slug)
+    {
+        $product = static::find($slug);
+
+        if(!$product)
+        {
+            throw new ModelNotFoundException();
+        }
+        return $product;
+    }
+
     public static function getAll()
     {
         // return File::files(resource_path("products/"));
@@ -43,13 +54,16 @@ class Product
 
         // return array_map(fn ($file) => $file->getContents(), $files);
 
-        return collect(File::files(resource_path("products/")))
-        ->map(fn ($file) => YamlFrontMatter::parseFile($file))
-        ->map(fn ($document) => new Product(
-                $document->title,
-                $document->date,
-                $document->body(),
-                $document->slug
-            ));
+        return cache()->rememberForever('products.getAll', function () {
+            return collect(File::files(resource_path("products")))
+                ->map(fn ($file) => YamlFrontMatter::parseFile($file))
+                ->map(fn ($document) => new Product(
+                        $document->title,
+                        $document->date,
+                        $document->body(),
+                        $document->slug
+                    ))
+                ->sortByDesc('date');
+        });
     }
 }
