@@ -26,12 +26,12 @@ Route::get('/login', function () {
 
 Route::get('/products', function () {
     return view('products', [
-        'products' => Product::getAll()
+        'products' => Product::all()
     ]);
 });
 
-Route::get('/products/{product}', function ($slug) {
+Route::get('/products/{product}', function ($id) {
     return view('product',[
-        'product' => Product::findOrFail($slug)
+        'product' => Product::findOrFail($id)
     ]);
 });
