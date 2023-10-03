@@ -4,7 +4,7 @@
     @foreach($products as $product)
         {{-- @dd($loop) --}}
         <article class="{{$loop->odd?'tae':''}}">
-            <a href="/products/{{$product->id}}">
+            <a href="/products/{{$product->slug}}">
                 <h1>
                 {{$product->title;}}
                 </h1>

@@ -13,11 +13,12 @@ return new class extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
             $table->string('title');
+            $table->string('slug')->unique();
             $table->text('excerpt');
             $table->text('body');
             $table->timestamp('published_at')->nullable();
+            $table->timestamps();
         });
     }
 
