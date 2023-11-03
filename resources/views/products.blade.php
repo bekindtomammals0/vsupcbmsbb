@@ -9,6 +9,11 @@
                 {{$product->title;}}
                 </h1>
             </a>
+
+            <p>
+                <a href="#">{{$product->category->name}}</a>
+            </p>
+
             <div>
                 {!! $product->excerpt; !!}
             </div>

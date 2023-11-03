@@ -11,4 +11,11 @@ class Product extends Model
 
     protected $guarded = [];
     // protected $fillable = ['title', 'excerpt', 'body'];
+
+    public function category()
+    {
+        // Laravel relationship types:
+        // hasOne, hasMany, belongsTo, belongsToMany
+        return $this->belongsTo(Category::class);
+    }
 }
