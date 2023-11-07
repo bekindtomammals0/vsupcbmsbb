@@ -11,7 +11,7 @@
             </a>
 
             <p>
-                <a href="#">{{$product->category->name}}</a>
+                <a href="/categories/{{$product->category->slug}}">{{$product->category->name}}</a>
             </p>
 
             <div>

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Models\Product;
+use App\Models\Category;
 use Spatie\YamlFrontMatter\YamlFrontMatter;
 use Symfony\Component\Yaml\Yaml;
 
@@ -33,5 +34,11 @@ Route::get('/products', function () {
 Route::get('/products/{product:slug}', function (Product $product) {
     return view('product',[
         'product' => $product
+    ]);
+});
+
+Route::get('/categories/{category:slug}',function (Category $category){
+    return view('products', [
+        'products' => $category->products
     ]);
 });
