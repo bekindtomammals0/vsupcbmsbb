@@ -2,7 +2,6 @@
 @section('content')
     <h2>You are now in Products Page</h2>
     @foreach($products as $product)
-        {{-- @dd($loop) --}}
         <article class="{{$loop->odd?'tae':''}}">
             <a href="/products/{{$product->slug}}">
                 <h1>

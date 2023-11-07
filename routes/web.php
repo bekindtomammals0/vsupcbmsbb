@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Models\Product;
 use App\Models\Category;
+use Illuminate\Support\Facades\DB;
 use Spatie\YamlFrontMatter\YamlFrontMatter;
 use Symfony\Component\Yaml\Yaml;
 
@@ -27,7 +28,7 @@ Route::get('/login', function () {
 
 Route::get('/products', function () {
     return view('products', [
-        'products' => Product::all()
+        'products' => Product::with('category')->get()
     ]);
 });
 
