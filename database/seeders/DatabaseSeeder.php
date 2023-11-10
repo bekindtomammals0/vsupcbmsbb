@@ -6,6 +6,7 @@ namespace Database\Seeders;
 
 use App\Models\Category;
 use App\Models\User;
+use App\Models\Product;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -15,27 +16,58 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        User::factory(10)->create();
+        // User::factory(10)->create();
 
-        // Category::create([
-        //     'name' => 'Merch',
-        //     'slug' => 'merch'
-        // ]);
+        User::truncate();
+        Category::truncate();
 
-        // Category::create([
-        //     'name' => 'Food',
-        //     'slug' => 'food'
-        // ]);
 
-        // Category::create([
-        //     'name' => 'Beverage',
-        //     'slug' => 'beverage'
-        // ]);
+        $merch_cat = Category::create([
+            'name' => 'Merch',
+            'slug' => 'merch'
+        ]);
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        $food_cat = Category::create([
+            'name' => 'Food',
+            'slug' => 'food'
+        ]);
+
+        $beverage_cat = Category::create([
+            'name' => 'Beverage',
+            'slug' => 'beverage'
+        ]);
+
+        $user = User::factory()->create([
+            'name' => 'Test User',
+            'email' => 'test@example.com',
+        ]);
+
+        Product::create([
+            'user_id' => $user->id,
+            'category_id' => $merch_cat->id,
+            'title' => 'The BBT shirt',
+            'slug' => 'thebbtshirt',
+            'excerpt' => 'New design shirt!',
+            'body' => 'One shirt for all occassions.',
+        ]);
+
+        Product::create([
+            'user_id' => $user->id,
+            'category_id' => $food_cat->id,
+            'title' => 'Pizza',
+            'slug' => 'pizza',
+            'excerpt' => 'Pampabusog lusog',
+            'body' => 'The excellent pizza for everyone!',
+        ]);
+
+        Product::create([
+            'user_id' => $user->id,
+            'category_id' => $beverage_cat->id,
+            'title' => 'Pocari Sweat',
+            'slug' => 'pocarisweat',
+            'excerpt' => 'Ionizing drink!',
+            'body' => 'This is the sports drink for all kinds of sports.',
+        ]);
 
     }
 }
