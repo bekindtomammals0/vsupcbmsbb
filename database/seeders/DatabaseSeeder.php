@@ -25,6 +25,11 @@ class DatabaseSeeder extends Seeder
             'user_id' => $user->id
         ]);
 
+        Product::factory(2)->create([
+            'user_id' => $user->id,
+            'category_id' => 1
+        ]);
+
         // $merch_cat = Category::create([
         //     'name' => 'Merch',
         //     'slug' => 'merch'

@@ -29,7 +29,7 @@ Route::get('/login', function () {
 
 Route::get('/products', function () {
     return view('products', [
-        'products' => Product::latest('updated_at')->with(['category', 'store'])->get()
+        'products' => Product::latest('updated_at')->get()
     ]);
 });
 
