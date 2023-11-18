@@ -6,15 +6,19 @@
     <title>Specific Product</title>
 </head>
 <body>
-    <h1>
-        {{$product->title}}
-    </h1>
-    <p>
-        <a href="/categories/{{$product->category->slug}}">{{$product->category->name}}</a>
-    </p>
-    <div>
-        {!!$product->body;!!}
-    </div>
+    <article>
+        <h1>
+            {{$product->title}}
+        </h1>
+        <p>
+            Category: <a href="/categories/{{$product->category->slug}}">{{$product->category->name}}</a>
+            <br><br>
+            Added by <a href="/stores/{{$product->store->id}}"> {{$product->store->name}}</a>
+        </p>
+        <div>
+            {!!$product->body;!!}
+        </div>
+    </article>
     <a href="/">Go Back</a>
 </body>
 </html>
