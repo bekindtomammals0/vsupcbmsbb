@@ -13,7 +13,7 @@
         <p>
             Category: <a href="/categories/{{$product->category->slug}}">{{$product->category->name}}</a>
             <br><br>
-            Added by <a href="/stores/{{$product->store->id}}"> {{$product->store->name}}</a>
+            Added by <a href="/stores/{{$product->store->username}}"> {{$product->store->name}}</a>
         </p>
         <div>
             {!!$product->body;!!}

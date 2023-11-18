@@ -46,7 +46,7 @@ Route::get('/categories/{category:slug}',function (Category $category){
 });
 
 
-Route::get('/stores/{store}', function (User $store) {
+Route::get('/stores/{store:username}', function (User $store) {
     // dd($author);
     return view('products', [
         'products' => $store->products
